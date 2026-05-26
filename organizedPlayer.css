@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Backgrounds */
+  --bg-body: hsl(340, 50%, 55%);
+  --bg-main: linear-gradient(to left, hsl(230, 30%, 18%), hsl(230, 35%, 10%));
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #c7577d;
+  --text-muted: #9ca3af;
+
+  /* Progress bars */
+  --progress-bg: rgb(165, 165, 165);
+  --progress-fill: hsl(179, 80%, 55%);
+  --progress-shadow: 1px 1px 10px hsl(179, 80%, 20%);
+
+  /* Shadows */
+  --card-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background-color: var(--bg-body);
+  min-height: 100vh;
+  width: 100vw;
+
+  /* use flex to center the main container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: clamp(350px, 80%, 1200px);
+  min-height: 80%;
+
+  background: var(--bg-main);
+  box-shadow: 2px 2px 10px rgba(82, 82, 82, 0.7);
+  border-radius: 0.75rem;
+  padding: 0 1.4rem;
+
+  /* display center and flexbox*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.2rem;
+}
+
+/* song detail */
+.songDetails {
+  width: 100%;
+  margin-top: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  text-align: center;
+}
+/* song name */
+.songTitle {
+  width: 100%;
+  color: var(--text-primary);
+  font-size: clamp(1.3rem, 4vw, 2.5rem);
+  font-weight: bold;
+}
+
+/* singer name */
+.songSinger {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 3vw, 1.8rem);
+}
+
+/* main body i.e. all except song detail */
+#mainBody {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  padding: clamp(0.8rem, 2vw, 2rem);
+}
+
+/* container having both song image and sound */
+.songImgSound {
+  width: clamp(200px, 45%, 300px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* container having both song image */
+.songImg-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /*  center image inside container */
+  margin: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* song image*/
+.songImg-container img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+/* container having song control, progress and icon */
+.soundControl {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-flow: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+/* container of song progress  */
+.soundContainer {
+  width: 75%;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 0.4rem;
+}
+
+.soundContainer,
+.progressContainer {
+  background-color: var(--progress-bg);
+}
+
+/*  audio sound amount  */
+.soundProgress {
+  width: 50%;
+  height: 100%;
+  background-color: var(--progress-bgColor);
+  box-shadow: var(--progress-shadow-color);
+  border-radius: 0.5rem;
+}
+
+.timeProgressDot,
+.soundProgressDot {
+  display: inline;
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: var(--bg-body);
+  border-radius: 50%;
+  border: 3px solid #9ca3af;
+  position: absolute;
+  left: 0%;
+  box-sizing: content-box;
+}
+
+.soundProgressDot {
+  left: 48%;
+}
+
+.soundProgress,
+.currentTimeProgress {
+  background-color: var(--progress-fill);
+  box-shadow: var(--progress-shadow);
+}
+
+/* sound icon- mute, unmute */
+.soundControl button {
+  width: clamp(1.2rem, 5vw, 4rem);
+}
+
+/* all button setting */
+button {
+  background-color: transparent;
+  border: none;
+}
+
+/* images in button */
+button img {
+  width: clamp(30px, 5vw, 50px);
+  height: clamp(30px, 5vw, 50px);
+  border-radius: 50%;
+}
+
+.playButtonImg {
+  width: clamp(30px, 5vw, 65px);
+  height: clamp(30px, 5vw, 65px);
+}
+
+/* active button */
+.buttonsContainer button:active {
+  transform: scale(1.1);
+}
+
+/* active as well as hovered button */
+button img:active,
+button img:hover {
+  box-shadow: 2px 4px 10px rgb(125, 123, 123);
+}
+
+.mainPlayer {
+  flex: 1;
+  min-width: 200px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  audio progress seek bar*/
+/* container having currentPlayTime, song total duration, progress seek bar */
+.progressControl {
+  width: clamp(85%, 90%, 95%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.progressControl p {
+  /* font-size: clamp(1.2rem, 4vw, 1.8rem); */
+  font-family: "Roboto Condensed", sans-serif;
+  color: #c7577d;
+  font-size: clamp(0.5rem, 2vw, 1.2rem);
+  /* font-weight: lighter; */
+}
+
+.progressContainer {
+  width: clamp(70%, 85%, 90%);
+  height: clamp(0.3rem, 4vw, 0.5rem);
+  border: 1px solid rgba(4, 11, 71, 0.7);
+  border-radius: 5px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.currentTimeProgress {
+  width: 0%;
+  height: 100%;
+  /* border: 1px solid rgba(4, 11, 71, 0.7); */
+  border-radius: 5px;
+}
+
+.buttonsContainer {
+  /* background-color: rebeccapurple; */
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* order button stays at the start */
+.queue {
+  margin-right: auto;
+  border: 2px solid #9ca3af;
+
+  background-color: linear-gradient(
+    to center,
+    hsl(230, 30%, 18%),
+    hsl(229, 66%, 17%)
+  );
+}
+
+.queue img {
+  width: clamp(20px, 5vw, 30px);
+  height: clamp(20px, 5vw, 30px);
+}
+
+.queue img:active,
+.queue img:hover {
+  box-shadow: none;
+  transform: none;
+  border-radius: 0.75rem;
+}
+
+/* Center the remaining buttons */
+.audioButton {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px; /* optional spacing */
+}
+
+.orderDialogue {
+  font-weight: bold;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: clamp(0.5rem, 2vw, 1.2rem);
+  text-align: center;
+
+  display: none;
+
+  background-color: hsla(0, 0%, 35%, 0.786);
+  padding: 0.5em 0.7em;
+  border-radius: 0.4rem;
+
+  position: absolute;
+  left: 20%;
+  transform: translateX(-50%);
+}
+
+/* max-width: target less than or equal to  */
+/* min-width: target greater than or equal to  */
+@media screen and (max-width: 430px) {
+  /* this targets the screen having width <= 460px */
+  main {
+    width: 85%;
+    width: clamp(80%, 85vw, 90%);
+    height: clamp(500px, 75vh, 600px);
+    padding: 0.4rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "songDetail"
+      "mainBody";
+    border-radius: 0.75rem;
+  }
+
+  .songDetails {
+    grid-area: songDetail;
+  }
+
+  /* song name */
+  .songTitle {
+    font-size: clamp(1.3rem, 6.5vw, 2.5rem);
+  }
+
+  /* singer name */
+  .songSinger {
+    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+  }
+
+  #mainBody {
+    grid-area: mainBody;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0;
+  }
+
+  .songImgSound {
+    width: clamp(250px, 80%, 300px);
+    place-self: center;
+  }
+
+  .mainPlayer {
+    place-self: center;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .soundControl {
+    display: none;
+  }
+
+  /* images in button */
+  button img {
+    width: clamp(40px, 4vw, 50px);
+    height: clamp(40px, 5vw, 50px);
+  }
+
+  .playButtonImg {
+    width: clamp(45px, 5vw, 65px);
+    height: clamp(45px, 5vw, 65px);
+  }
+
+  .progressControl p {
+    font-size: clamp(0.7rem, 4vw, 1rem);
+  }
+}
+
+@media screen and (max-width: 602px) {
+  .soundControl {
+    display: none;
+  }
+}

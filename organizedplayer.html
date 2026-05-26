@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify</title>
+    <!-- <link rel="stylesheet" href="player.css" /> -->
+    <link rel="stylesheet" href="organizedPlayer.css" />
+    <script defer src="organizedPlayer.js"></script>
+  </head>
+  <body>
+    <main>
+      <audio src="" id="audio"></audio>
+      <!-- song title and singer Name -->
+      <div class="songDetails">
+        <p class="songTitle">Dekhte Dekhte</p>
+        <p class="songSinger">Atif A</p>
+      </div>
+
+      <!-- song img and song controls -->
+      <div id="mainBody">
+        <!-- song image and sound container -->
+        <div class="songImgSound">
+          <!-- img of song -->
+          <div class="songImg-container">
+            <img
+              src="songsImg/aaj-din-chadeya.jpg"
+              alt=""
+              class="songImg"
+              id="songImg"
+            />
+          </div>
+
+          <!-- song sound control -->
+          <div class="soundControl">
+            <div class="soundContainer">
+              <div class="soundProgress"></div>
+              <p class="soundProgressDot"></p>
+            </div>
+            <button class="sButton">
+              <img src="img/lowVolume.png" alt="sound" class="soundbutton" />
+            </button>
+          </div>
+        </div>
+
+        <!-- song main control, control button, progress bar -->
+        <div class="mainPlayer">
+          <!-- progress seek bar -->
+          <div class="progressControl">
+            <p class="songCurrentTime">00</p>
+            <div class="progressContainer">
+              <div class="currentTimeProgress"></div>
+              <p class="timeProgressDot"></p>
+            </div>
+            <p class="songTotalTime">00</p>
+          </div>
+
+          <!-- song control button -->
+          <div class="buttonsContainer">
+            <p class="orderDialogue">Repeat Song</p>
+            <button class="queue">
+              <img src="img/playQueue.png" alt="play in queue" class="order" />
+            </button>
+            <div class="audioButton">
+              <button class="prev">
+                <img src="img/skipPrevious.png" alt="previous song" />
+              </button>
+              <button class="play">
+                <img src="img/play.png" alt="play song" class="playButtonImg" />
+              </button>
+              <button class="next">
+                <img src="img/skipNext.png" alt="next song" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
